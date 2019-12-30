@@ -45,9 +45,6 @@ function Header({ name, enName, code, repoUrl, isLink, linkRef }) {
 }
 
 function getMilestone(amount) {
-  if (amount === undefined) {
-    return { emoji: '❓', text: '???' }
-  }
   if (amount < 0.1) {
     return { emoji: '🌱', text: 'Just started' }
   }
@@ -58,9 +55,9 @@ function getMilestone(amount) {
     return { emoji: '🎁', text: 'Wrapping up' }
   }
   if (amount === 1) {
-    return { emoji: '🎉', text: 'Released!' }
+    return { emoji: '🎉', text: 'Complete!' }
   }
-  return { emoji: '⭐️', text: 'Complete!' }
+  return { emoji: '❓', text: '???' }
 }
 
 function Progress({ coreCompletion }) {

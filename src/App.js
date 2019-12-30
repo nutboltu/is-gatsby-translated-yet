@@ -42,8 +42,17 @@ function Footer() {
   })
   return (
     <footer {...style}>
-      <p>Don't see your language?</p>
       <p>
+        If your language is not listed above, check the list of {` `}
+        <ExtLink href="https://github.com/gatsbyjs/gatsby/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+%22New+Translation+Request%22">open translation requests.</ExtLink>
+      </p>
+      <p>
+        If you don’t see the language among the issues listed, feel free to create a {` `}
+        <ExtLink href="https://github.com/gatsbyjs/gatsby/issues/new?template=new_translation.md">translation request issue</ExtLink>
+        for it and follow the instructions.
+      </p>
+      <p> For more details visit {` `}
+        <ExtLink href="https://www.gatsbyjs.org/contributing/gatsby-docs-translation-guide/">translation guide</ExtLink>
       </p>
     </footer>
   )
