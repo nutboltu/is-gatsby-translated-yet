@@ -116,7 +116,6 @@ export default function LangCard({
   lastEditedAt,
   number,
   coreCompletion,
-  otherCompletion,
 }) {
   const linkRef = useRef(null)
   const down = useRef(0)

@@ -44,19 +44,6 @@ function Footer() {
     <footer {...style}>
       <p>Don't see your language?</p>
       <p>
-        If you are interested in maintaining a translation, follow the
-        instructions at{' '}
-        <ExtLink href="https://github.com/reactjs/reactjs.org-translation">
-          reactjs.org-translation
-        </ExtLink>
-        .
-      </p>
-      <p>
-        We also have a{' '}
-        <ExtLink href="https://rt-slack-invite.herokuapp.com">
-          Slack channel
-        </ExtLink>
-        !
       </p>
     </footer>
   )

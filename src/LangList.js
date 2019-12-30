@@ -33,7 +33,7 @@ function getLangProgress(lang, issue) {
 async function getProgressList(langs) {
   // TODO this search requires looking for issues with the string "Translation Progress"
   // in the title. Maybe we should replace it with something more robust.
-  console.log(process.env);
+  const GATSBY_GITHUB_AUTH_TOKEN = 'a';
   const { search } = await graphql(
     `
       query($limit: Int!) {
@@ -59,7 +59,7 @@ async function getProgressList(langs) {
     `,
     {
       headers: {
-        authorization: `token ${process.env.GATSBY_GITHUB_AUTH_TOKEN}`,
+        authorization: `token ${GATSBY_GITHUB_AUTH_TOKEN}`,
       },
       limit: langs.length + 5, // padding in case of extra issues
     },
@@ -69,13 +69,8 @@ async function getProgressList(langs) {
       .filter(issue => !!issue && issue.repository)
       .map(issue => [issue.repository.name, issue]),
   )
-
-  return langs.reduce((list,lang) => {
-    if (issuesMap[`gatsby-${lang.code}`]) {
-      list.push(getLangProgress(lang, issuesMap[`gatsby-${lang.code}`]));
-    }
-    return list;
-  }, []);
+    console.log(issuesMap, 'issu')
+  return langs.map(lang => getLangProgress(lang, issuesMap[`gatsby-${lang.code}`]));
 }
 
 const sortOptions = [
@@ -109,7 +104,7 @@ export default function LangList({ langs }) {
     }
     return sorted
   }, [progressList, sortKey])
-  console.log(sortedList, 'sortedList');
+  
   return (
     <div>
       <SortSelector
