@@ -18,5 +18,5 @@ export default [
   { name: 'Polski', enName: 'Polish', code: 'pl' },
   { name: 'Nederlands', enName: 'Dutch', code: 'nl' },
   { name: 'Türkçe', enName: 'Turkish', code: 'tr' },
-  { name: 'Englisg', enName: 'English', code: 'en' },
+  { name: 'English', enName: 'English', code: 'en' },
 ]

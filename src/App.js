@@ -49,7 +49,7 @@ function Footer() {
       <p>
         If you don’t see the language among the issues listed, feel free to create a {` `}
         <ExtLink href="https://github.com/gatsbyjs/gatsby/issues/new?template=new_translation.md">translation request issue</ExtLink>
-        for it and follow the instructions.
+        {` `} for it and follow the instructions.
       </p>
       <p> For more details visit {` `}
         <ExtLink href="https://www.gatsbyjs.org/contributing/gatsby-docs-translation-guide/">translation guide</ExtLink>
