@@ -12,10 +12,8 @@ function Title() {
   })
   return (
     <h1 {...style}>
-      <span role="img" aria-label="globe">
-        🌏
-      </span>{' '}
-      Is React Translated Yet?
+      <img src="/gatsby-logo.png" alt="gatsby-icon" height="50" width="50" />
+      {` `} Is Gatsby Translated Yet?
     </h1>
   )
 }
@@ -28,8 +26,8 @@ function Description() {
 
   return (
     <p {...style}>
-      The global React community is translating{' '}
-      <ExtLink href="https://reactjs.org">reactjs.org</ExtLink> into{' '}
+      The global Gatsby community is translating{' '}
+      <ExtLink href="https://www.gatsbyjs.org/">gatsbyjs.org</ExtLink> into{' '}
       <strong {...css({ fontWeight: 600 })}>{langs.length}</strong> languages:
     </p>
   )

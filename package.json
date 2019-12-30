@@ -1,6 +1,6 @@
 {
-  "name": "is-react-translated-yet",
-  "version": "0.1.0",
+  "name": "is-gatsby-translated-yet",
+  "version": "0.0.1",
   "private": true,
   "devDependencies": {
     "react-scripts": "^3.0.0"

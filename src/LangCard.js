@@ -34,11 +34,11 @@ function Header({ name, enName, code, repoUrl, isLink, linkRef }) {
         </ExtLink>
       </h2>
       {isLink ? (
-        <ExtLink href={`https://${code}.reactjs.org`}>
-          {code}.reactjs.org
+        <ExtLink href={`https://${code}.gatsbyjs.org`}>
+          {code}.gatsbyjs.org
         </ExtLink>
       ) : (
-        <p {...css({ color: 'dimgray' })}>({code}.reactjs.org)</p>
+        <p {...css({ color: 'dimgray' })}>({code}.gatsbyjs.org)</p>
       )}
     </header>
   )
@@ -123,8 +123,8 @@ export default function LangCard({
 }) {
   const linkRef = useRef(null)
   const down = useRef(0)
-  const repoName = `${code}.reactjs.org`
-  const baseUrl = `https://github.com/reactjs/${repoName}`
+  const repoName = `gatsby-${code}`
+  const baseUrl = `https://github.com/gatsbyjs/${repoName}`
   const issueUrl = `${baseUrl}/issues/${number}`
 
   // Allow clicking on card component accessibly

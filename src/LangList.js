@@ -60,18 +60,18 @@ async function getProgressList(langs) {
     `,
     {
       headers: {
-        authorization: `token cfec53099bef4de3b423b0fe2487708fa7c30487`,
+        authorization: `token e4a74faf3e087ea73a8938fff1266f1e505f0782`,
       },
       limit: langs.length + 5, // padding in case of extra issues
     },
   )
-  console.log(search.nodes, 'nodes');
+  console.log(search.nodes)
   const issuesMap = fromPairs(
     search.nodes
       .filter(issue => !!issue && issue.repository)
       .map(issue => [issue.repository.name, issue]),
   )
-  console.log(issuesMap);
+
   return langs.reduce((list,lang) => {
     if (issuesMap[`gatsby-${lang.code}`]) {
       list.push(getLangProgress(lang, issuesMap[`gatsby-${lang.code}`]));
