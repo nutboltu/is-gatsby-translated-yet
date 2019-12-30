@@ -21,6 +21,7 @@ function getLangProgress(lang, issue) {
     const finishedItems = items.filter(line => /\* \[x\]/.test(line))
     sections[heading.trim()] = finishedItems.length / items.length
   })
+
   return {
     ...langProps,
     ...issueProps,
@@ -39,13 +40,14 @@ async function getProgressList(langs) {
       query($limit: Int!) {
         search(
           type: ISSUE
-          query: "org:gatsbyjs Translation Progress in:title"
+          query: "org:gatsbyjs Translation Progress in:title community/code-of-conduct in:body"
           first: $limit
         ) {
           nodes {
             ... on Issue {
               title
               body
+              closed
               createdAt
               lastEditedAt
               number
@@ -64,12 +66,13 @@ async function getProgressList(langs) {
       limit: langs.length + 5, // padding in case of extra issues
     },
   )
+
   const issuesMap = fromPairs(
     search.nodes
-      .filter(issue => !!issue && issue.repository)
+      .filter(issue => !!issue && issue.repository && !issue.closed)
       .map(issue => [issue.repository.name, issue]),
   )
-    console.log(issuesMap, 'issu')
+
   return langs.map(lang => getLangProgress(lang, issuesMap[`gatsby-${lang.code}`]));
 }
 
