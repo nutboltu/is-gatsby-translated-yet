@@ -44,7 +44,7 @@ function Header({ name, enName, code, repoUrl, isLink, linkRef }) {
   )
 }
 
-function getMilestone(amount, otherAmount) {
+function getMilestone(amount) {
   if (amount === undefined) {
     return { emoji: '❓', text: '???' }
   }
@@ -57,13 +57,13 @@ function getMilestone(amount, otherAmount) {
   if (amount < 1) {
     return { emoji: '🎁', text: 'Wrapping up' }
   }
-  if (amount === 1 && otherAmount < 1) {
+  if (amount === 1) {
     return { emoji: '🎉', text: 'Released!' }
   }
   return { emoji: '⭐️', text: 'Complete!' }
 }
 
-function Progress({ coreCompletion, otherCompletion }) {
+function Progress({ coreCompletion }) {
   const style = css({
     display: 'flex',
     width: '100%',
@@ -71,7 +71,7 @@ function Progress({ coreCompletion, otherCompletion }) {
     marginTop: 'auto',
     marginBottom: 'auto',
   })
-  const { emoji, text } = getMilestone(coreCompletion, otherCompletion)
+  const { emoji, text } = getMilestone(coreCompletion)
   return (
     <div {...style}>
       <div
@@ -87,9 +87,6 @@ function Progress({ coreCompletion, otherCompletion }) {
       <div style={{ width: '8rem', fontSize: '1rem' }}>
         <p>
           Core: <Percentage size="lg" value={coreCompletion} />
-        </p>
-        <p>
-          Other: <Percentage size="md" value={otherCompletion} />
         </p>
       </div>
     </div>
@@ -168,7 +165,6 @@ export default function LangCard({
       />
       <Progress
         coreCompletion={coreCompletion}
-        otherCompletion={otherCompletion}
       />
       <footer
         {...css({

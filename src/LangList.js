@@ -9,7 +9,6 @@ import SortSelector from './SortSelector'
 function getLangProgress(lang, issue) {
   const {
     corePages = 'Core Pages',
-    nextSteps = 'Next Steps',
     ...langProps
   } = lang
   const { body, createdAt, lastEditedAt = createdAt, ...issueProps } = issue
@@ -28,13 +27,13 @@ function getLangProgress(lang, issue) {
     createdAt,
     lastEditedAt,
     coreCompletion: sections[corePages],
-    otherCompletion: sections[nextSteps],
   }
 }
 
 async function getProgressList(langs) {
   // TODO this search requires looking for issues with the string "Translation Progress"
   // in the title. Maybe we should replace it with something more robust.
+  console.log(process.env);
   const { search } = await graphql(
     `
       query($limit: Int!) {
@@ -60,12 +59,11 @@ async function getProgressList(langs) {
     `,
     {
       headers: {
-        authorization: `token e4a74faf3e087ea73a8938fff1266f1e505f0782`,
+        authorization: `token ${process.env.GATSBY_GITHUB_AUTH_TOKEN}`,
       },
       limit: langs.length + 5, // padding in case of extra issues
     },
   )
-  console.log(search.nodes)
   const issuesMap = fromPairs(
     search.nodes
       .filter(issue => !!issue && issue.repository)
@@ -83,7 +81,7 @@ async function getProgressList(langs) {
 const sortOptions = [
   { key: 'code', label: 'Lang Code' },
   { key: 'enName', label: 'English Name' },
-  { key: ['coreCompletion', 'otherCompletion'], label: 'Completion' },
+  { key: ['coreCompletion'], label: 'Completion' },
   { key: 'createdAt', label: 'Start Date' },
   { key: 'lastEditedAt', label: 'Last Updated' },
 ]
