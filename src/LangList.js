@@ -34,7 +34,6 @@ function getLangProgress(lang, issue) {
 async function getProgressList(langs) {
   // TODO this search requires looking for issues with the string "Translation Progress"
   // in the title. Maybe we should replace it with something more robust.
-  const GATSBY_GITHUB_AUTH_TOKEN = 'a';
   const { search } = await graphql(
     `
       query($limit: Int!) {
@@ -61,7 +60,7 @@ async function getProgressList(langs) {
     `,
     {
       headers: {
-        authorization: `token ${GATSBY_GITHUB_AUTH_TOKEN}`,
+        authorization: `token ${process.env.GATSBY_GITHUB_AUTH_TOKEN}`,
       },
       limit: langs.length + 5, // padding in case of extra issues
     },
