@@ -60,7 +60,7 @@ async function getProgressList(langs) {
     `,
     {
       headers: {
-        authorization: `token ${process.env.GATSBY_GITHUB_AUTH_TOKEN}`,
+        authorization: `token ${process.env.REACT_APP_GATSBY_GITHUB_AUTH_TOKEN}`,
       },
       limit: langs.length + 5, // padding in case of extra issues
     },
