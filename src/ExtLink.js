@@ -6,10 +6,11 @@ export default forwardRef(function ExtLink(
   ref,
 ) {
   const style = css({
-    color: 'blue',
-    textDecoration: 'underline',
+    color: '#8c2dba',
+    textDecoration: 'none',
+
     ':hover': {
-      textDecoration: 'none',
+      textDecoration: 'underline',
     },
     ...customStyle,
   })

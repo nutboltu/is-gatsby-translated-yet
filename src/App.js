@@ -25,11 +25,20 @@ function Description() {
   })
 
   return (
-    <p {...style}>
-      The global Gatsby community is translating{' '}
-      <ExtLink href="https://www.gatsbyjs.org/">gatsbyjs.org</ExtLink> into{' '}
-      <strong {...css({ fontWeight: 600 })}>{langs.length}</strong> languages:
-    </p>
+    <>
+      <p {...style}>
+          There is an ongoing effort to translate the content on {' '}
+        <ExtLink href="https://www.gatsbyjs.org/">gatsbyjs.org</ExtLink>
+        {` `} into multiple languages.
+        
+      </p>
+      <p {...style}>
+        <strong {...css({ fontWeight: 600 })}>{langs.length}</strong> languages 
+        are in progress of {` `}
+        <ExtLink href="https://www.gatsbyjs.org/">gatsbyjs.org</ExtLink>
+        {` `}translation
+      </p>
+    </>
   )
 }
 

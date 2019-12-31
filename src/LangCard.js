@@ -141,11 +141,11 @@ export default function LangCard({
     width: '20rem',
     height: '18rem',
     padding: '1rem',
-    border: '1px gray solid',
+    border: '1px #E0E0E0 solid',
     cursor: 'pointer',
 
     ':hover': {
-      outline: '2px gray solid',
+      boxShadow: '1px 2px 9px -5px',
     },
   })
 
