@@ -3,7 +3,7 @@
 
 This project is totally inspired by [Nat Alison](https://github.com/tesseralis)'s [is-react-translated-yet](https://github.com/tesseralis/is-react-translated-yet).
 
-Find out the live version: http://is-gatsby-translated-yet.netlify.com
+Find out the live version: https://isgatsbytranslatedyet.org
 
 ## Development
 
