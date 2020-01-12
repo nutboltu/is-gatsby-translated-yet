@@ -36,7 +36,7 @@ function Description() {
         <strong {...css({ fontWeight: 600 })}>{langs.length}</strong> languages 
         are in progress of {` `}
         <ExtLink href="https://www.gatsbyjs.org/">gatsbyjs.org</ExtLink>
-        {` `}translation
+        {` `}translation.
       </p>
     </>
   )
@@ -61,7 +61,7 @@ function Footer() {
         {` `} for it and follow the instructions.
       </p>
       <p> For more details visit {` `}
-        <ExtLink href="https://www.gatsbyjs.org/contributing/gatsby-docs-translation-guide/">translation guide</ExtLink>
+        <ExtLink href="https://www.gatsbyjs.org/contributing/gatsby-docs-translation-guide/">translation guide.</ExtLink>
       </p>
     </footer>
   )
