@@ -1,5 +1,6 @@
 import React from 'react'
 import { css } from 'glamor'
+import ExtLink from './ExtLink'
 
 const style = css({
   height: '30px',
@@ -23,8 +24,10 @@ export default function Maintainers({
       <div {...containerStyle} >
         
         {
-          maintainers.map(maintainer => (
-            <img {...style} src={`https://github.com/${maintainer}.png`} alt={maintainer}/>
+          maintainers.map((maintainer, index) => (
+            <ExtLink href={`https://github.com/${maintainer}`} key={index}>
+              <img {...style} src={`https://github.com/${maintainer}.png`} alt={maintainer} />
+            </ExtLink>
           ))
         }
       </div>
