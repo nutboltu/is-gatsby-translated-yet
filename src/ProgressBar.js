@@ -3,18 +3,17 @@ import { css } from 'glamor'
 import tinycolor from 'tinycolor2'
 
 function getColor(amount) {
-  const medColor = '#FFE380'
   if (amount === undefined) {
     return 'white'
   }
 
   if (amount < 0.5) {
     return tinycolor
-      .mix(tinycolor('#FF8F73'), tinycolor(medColor), amount * 100)
+      .mix(tinycolor('#f5d47b'), tinycolor('#edc24e'), amount * 100)
       .toHexString()
   }
   return tinycolor
-    .mix(tinycolor(medColor), tinycolor('#4FA246'), (amount - 0.5) * 100)
+    .mix(tinycolor('#83e88d'), tinycolor('#13a22a'), (amount - 0.5) * 100)
     .toHexString()
 }
 

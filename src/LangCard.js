@@ -16,7 +16,7 @@ function Percentage({ value, size }) {
   )
 }
 
-function Header({ name, enName, code, repoUrl, isLink, linkRef }) {
+function Header({ name, enName, code, repoUrl, linkRef }) {
   const linkStyle = css({
     color: 'black',
     textDecoration: 'none',
@@ -35,13 +35,6 @@ function Header({ name, enName, code, repoUrl, isLink, linkRef }) {
           {name}
         </ExtLink>
       </h2>
-      {isLink ? (
-        <ExtLink href={`https://${code}.gatsbyjs.org`}>
-          {code}.gatsbyjs.org
-        </ExtLink>
-      ) : (
-        <p {...css({ color: 'dimgray' })}>({code}.gatsbyjs.org)</p>
-      )}
     </header>
   )
 }
@@ -170,7 +163,7 @@ export default function LangCard({
     flexDirection: 'column',
     margin: '1rem',
     width: '20rem',
-    height: '21rem',
+    height: '20rem',
     padding: '1rem',
     border: '1px #E0E0E0 solid',
     cursor: 'pointer',
@@ -187,7 +180,6 @@ export default function LangCard({
         enName={enName}
         code={code}
         repoUrl={baseUrl}
-        isLink={coreCompletion > 0.75}
         linkRef={linkRef}
       />
       <Progress
