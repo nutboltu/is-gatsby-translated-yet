@@ -33,10 +33,9 @@ function Description() {
         
       </p>
       <p {...style}>
-        <strong {...css({ fontWeight: 600 })}>{langs.length}</strong> languages 
-        are in progress of {` `}
-        <ExtLink href="https://www.gatsbyjs.org/">gatsbyjs.org</ExtLink>
-        {` `}translation.
+       <ExtLink href="https://www.gatsbyjs.org/">gatsbyjs.org</ExtLink>
+        {` `} site is currently translating in {` `}
+        <strong {...css({ fontWeight: 600 })}>{langs.length}</strong> languages. 🎉
       </p>
     </>
   )
