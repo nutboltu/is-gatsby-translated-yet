@@ -1,5 +1,8 @@
 # Is Gatsby Translated Yet
 [![Netlify Status](https://api.netlify.com/api/v1/badges/bdeac650-0bfb-417d-9f8e-c77fcfbdc3f8/deploy-status)](https://app.netlify.com/sites/is-gatsby-translated-yet/deploys)
+<a href="https://twitter.com/intent/follow?screen_name=nutboltu">
+   <img src="https://img.shields.io/twitter/follow/nutboltu.svg?label=Follow%20@nutboltu" alt="Follow @nutboltu" />
+</a>
 
 This project is totally inspired by [Nat Alison](https://github.com/tesseralis)'s [is-react-translated-yet](https://github.com/tesseralis/is-react-translated-yet).
 
