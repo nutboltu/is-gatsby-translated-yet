@@ -163,7 +163,7 @@ export default function LangCard({
     flexDirection: 'column',
     margin: '1rem',
     width: '20rem',
-    height: '20rem',
+    height: '19rem',
     padding: '1rem',
     border: '1px #E0E0E0 solid',
     cursor: 'pointer',
@@ -187,14 +187,10 @@ export default function LangCard({
       />
       <footer
         {...css({
-          marginTop: 'auto',
+          margin: '.8rem 0',
           lineHeight: 1.25,
-          marginBottom: '.5rem',
         })}
       >
-        <p {...css({ marginBottom: '.5rem' })}>
-          <ExtLink href={issueUrl}>Contribute</ExtLink>
-        </p>
         <p {...css({ color: 'DimGrey', fontSize: '.875rem' })}>
           Start date: {formatDate(createdAt)}
         </p>
