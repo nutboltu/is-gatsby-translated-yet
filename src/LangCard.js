@@ -1,7 +1,9 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
+import graphql from '@octokit/graphql'
 import { css } from 'glamor'
 import ExtLink from './ExtLink'
 import ProgressBar from './ProgressBar'
+import Maintainers from './Maintainers'
 
 function Percentage({ value, size }) {
   const style = css({
@@ -64,9 +66,8 @@ function Progress({ coreCompletion }) {
   const style = css({
     display: 'flex',
     width: '100%',
-    justifyContent: 'space-around',
-    marginTop: 'auto',
-    marginBottom: 'auto',
+    justifyContent: 'space-between',
+    margin: '8px 0',
   })
   const { emoji, text } = getMilestone(coreCompletion)
   return (
@@ -105,6 +106,27 @@ function formatDate(dateString) {
   )}`
 }
 
+async function getCodeOwner(repoName) {
+  const {repository } = await graphql(
+    `query($repoName: String!) {
+      repository(name: $repoName, owner: "gatsbyjs") { 
+        content:object(expression: "master:CODEOWNERS") {
+          ... on Blob {
+            text
+          }
+        }
+      }
+    }`, {
+    headers: {
+      authorization: `token ${process.env.REACT_APP_GATSBY_GITHUB_AUTH_TOKEN}`,
+    },
+    repoName: repoName,
+  });
+  const regex = /@\b\w+/g;
+  const owners = repository.content.text.match(regex);
+  return owners.map(owner => owner.slice(1));
+}
+
 export default function LangCard({
   name = '??????',
   enName = '??????',
@@ -116,10 +138,17 @@ export default function LangCard({
 }) {
   const linkRef = useRef(null)
   const down = useRef(0)
+  const [maintainers, setMaintainers] = useState([]);
   const repoName = `gatsby-${code}`
   const baseUrl = `https://github.com/gatsbyjs/${repoName}`
   const issueUrl = `${baseUrl}/issues/${number}`
-
+  useEffect(() => {
+    const getMaintainers = async function () {
+      const data = await getCodeOwner(repoName);
+      setMaintainers(data);
+    }
+    getMaintainers()
+  }, []);
   // Allow clicking on card component accessibly
   // Source: https://inclusive-components.design/cards/
   const handleMouseDown = () => {
@@ -139,7 +168,7 @@ export default function LangCard({
     flexDirection: 'column',
     margin: '1rem',
     width: '20rem',
-    height: '18rem',
+    height: '21rem',
     padding: '1rem',
     border: '1px #E0E0E0 solid',
     cursor: 'pointer',
@@ -180,6 +209,7 @@ export default function LangCard({
         </p>
       </footer>
       <ProgressBar value={coreCompletion} />
+      <Maintainers maintainers={maintainers} />
     </div>
   )
 }
