@@ -66,29 +66,6 @@ async function getProgressList(langs) {
     },
   )
 
-  const info = await graphql(`query {
-    search(query: "org:gatsbyjs in:name gatsby- in:description translation of Gatsbyjs.org", type: REPOSITORY, first: 15) {
-      repositoryCount
-      edges {
-        node {
-          ... on Repository {
-            description
-            content:object(expression: "master:CODEOWNERS") {
-              ... on Blob {
-                text
-              }
-            }
-          }
-        }
-      }
-    }
-  }`, {
-    headers: {
-      authorization: `token ${process.env.REACT_APP_GATSBY_GITHUB_AUTH_TOKEN}`,
-    },
-    limit: langs.length + 5, // padding in case of extra issues
-  });
-  console.log(info);
   const issuesMap = fromPairs(
     search.nodes
       .filter(issue => !!issue && issue.repository)
