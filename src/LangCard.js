@@ -64,7 +64,7 @@ function Progress({ coreCompletion }) {
   })
   const { emoji, text } = getMilestone(coreCompletion)
   return (
-    <div {...style}>
+    <div {...style} style={{ filter: coreCompletion === undefined ? 'blur(6px)' : undefined }}>
       <div
         style={{
           display: 'flex',
@@ -121,9 +121,9 @@ async function getCodeOwner(repoName) {
 }
 
 export default function LangCard({
-  name = '??????',
-  enName = '??????',
-  code = '??',
+  name = '',
+  enName = '',
+  code = '',
   createdAt,
   lastEditedAt,
   number,
@@ -134,7 +134,7 @@ export default function LangCard({
   const [maintainers, setMaintainers] = useState([]);
   const repoName = `gatsby-${code}`
   const baseUrl = `https://github.com/gatsbyjs/${repoName}`
-  const issueUrl = `${baseUrl}/issues/${number}`
+  
   useEffect(() => {
     const getMaintainers = async function () {
       const data = await getCodeOwner(repoName);
@@ -191,10 +191,10 @@ export default function LangCard({
           lineHeight: 1.25,
         })}
       >
-        <p {...css({ color: 'DimGrey', fontSize: '.875rem' })}>
+        <p {...css({ color: 'DimGrey', fontSize: '.875rem' })} style={{ filter: createdAt ? undefined: 'blur(6px)'}}>
           Start date: {formatDate(createdAt)}
         </p>
-        <p {...css({ color: 'DimGrey', fontSize: '.875rem' })}>
+        <p {...css({ color: 'DimGrey', fontSize: '.875rem' })} style={{ filter: createdAt ? undefined: 'blur(6px)'}}>
           Last updated: {formatDate(lastEditedAt)}
         </p>
       </footer>

@@ -15,11 +15,6 @@ export default [
     code: "nl"
   },
   {
-    name: "English",
-    enName: "English",
-    code: "en"
-  },
-  {
     name: "Français",
     enName: "French",
     code: "fr"
