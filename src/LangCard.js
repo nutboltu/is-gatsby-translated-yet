@@ -165,11 +165,12 @@ export default function LangCard({
     width: '20rem',
     height: '19rem',
     padding: '1rem',
-    border: '1px #E0E0E0 solid',
+    borderRadius: '14px',
     cursor: 'pointer',
+    boxShadow: '1px 2px 5px -4px',
 
     ':hover': {
-      boxShadow: '1px 2px 9px -5px',
+      boxShadow: '1px 2px 11px -5px',
     },
   })
 
