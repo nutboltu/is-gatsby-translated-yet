@@ -47,7 +47,8 @@ export default [
   {
     name: "日本語",
     enName: "Japanese",
-    code: "ja"
+    code: "ja",
+    corePages: 'Core Pages（コアページ）'
   },
   {
     name: "한국어",

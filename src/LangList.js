@@ -16,9 +16,10 @@ function getLangProgress(lang, issue) {
   body.split(/^##\s+/gm).forEach(section => {
     const [heading, ...content] = section.split('\n')
     const items = content.filter(line => {
-      return /\* *\[[ x]\]/.test(line)
+      return /(\*|-) *\[[ x]\]/.test(line)
     })
-    const finishedItems = items.filter(line => /\* \[x\]/.test(line))
+
+    const finishedItems = items.filter(line => /(\*|-) \[x\]/.test(line))
     sections[heading.trim()] = finishedItems.length / items.length
   })
 
