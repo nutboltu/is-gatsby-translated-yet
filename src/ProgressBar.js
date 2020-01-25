@@ -19,11 +19,12 @@ function getColor(amount) {
 
 export default function ProgressBar({ value = 0 }) {
   const percent = value * 100
+  const color = getColor(value)
   const style = css({
     width: '100%',
     height: '1.25rem',
-    backgroundColor: 'lightgray',
-    border: '1px solid gray',
+    backgroundColor: '#f5f3f3',
+    border: `1px solid ${color}`,
   })
 
   const innerStyle = css({
@@ -42,7 +43,7 @@ export default function ProgressBar({ value = 0 }) {
         {...innerStyle}
         style={{
           width: `${percent}%`,
-          backgroundColor: getColor(value),
+          backgroundColor: color,
         }}
       />
     </div>
