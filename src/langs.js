@@ -61,6 +61,11 @@ export default [
     code: "mn"
   },
   {
+    name: 'فارسی',
+    enName: 'Persian',
+    code: 'fa'
+  },
+  {
     name: "Polski",
     enName: "Polish",
     code: "pl"
