@@ -6,7 +6,7 @@
 
 This project is totally inspired by [Nat Alison](https://github.com/tesseralis)'s [is-react-translated-yet](https://github.com/tesseralis/is-react-translated-yet).
 
-Find out the live version: https://isgatsbytranslatedyet.org
+Find out the live version: https://is-gatsby-translated-yet.netlify.app
 
 ## Development
 
